@@ -51,3 +51,7 @@ for(let i =0; i< callButtons.length;i++){
         callHistoryContainer.appendChild(div);
     })
 }
+
+document.getElementById('history-clear-btn').addEventListener('click',function(){
+  callHistoryContainer.innerHTML = '';
+})
