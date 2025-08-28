@@ -27,7 +27,7 @@ const callHistoryContainer = document.getElementById('call-history-container');
 for(let i =0; i< callButtons.length;i++){
     callButtons[i].addEventListener('click',function(){
         if(coins<20){
-           return alert('Do not have sufficient coin');
+           return alert('Do not have sufficient coin. Need at least 20 coin to make a call');
         }
         coins -= 20;
         document.getElementById('coin-number').innerText = coins;
@@ -52,6 +52,24 @@ for(let i =0; i< callButtons.length;i++){
     })
 }
 
+// clear history functionality
+
 document.getElementById('history-clear-btn').addEventListener('click',function(){
   callHistoryContainer.innerHTML = '';
 })
+
+// copy functionality 
+
+let copyCount = parseInt(document.getElementById('copy-count').innerText);
+
+const copyButtons = document.getElementsByClassName('copy-btn');
+
+for(let i = 0; i<copyButtons.length; i++){
+  copyButtons[i].addEventListener('click',function(){
+    copyCount++;
+    document.getElementById('copy-count').innerText = copyCount;
+    navigator.clipboard.writeText(serviceNumbers[i].innerText);
+    alert('Number copied '+ serviceNumbers[i].innerText);
+  })
+}
+
