@@ -18,6 +18,8 @@ const callButtons = document.getElementsByClassName("call-button");
 
 let coins = parseInt(document.getElementById('coin-number').innerText);
 
+const serviceNamesBn = document.getElementsByClassName('service-name-bn')
+
 const serviceNames = document.getElementsByClassName('service-name');
 
 const serviceNumbers = document.getElementsByClassName('service-number');
@@ -31,6 +33,7 @@ for(let i =0; i< callButtons.length;i++){
         }
         coins -= 20;
         document.getElementById('coin-number').innerText = coins;
+        const serviceNameBn = serviceNamesBn[i].innerText;
         const serviceName = serviceNames[i].innerText;
         const serviceNumber = serviceNumbers[i].innerText;
         alert('📞 calling ' + serviceName +' '+ serviceNumber);
@@ -42,7 +45,7 @@ for(let i =0; i< callButtons.length;i++){
         div.innerHTML = `
           <div class="flex justify-between items-center mt-2 p-2 bg-[#FAFAFA] rounded-lg">
                     <div>
-                        <h1>${serviceName}</h1>
+                        <h1>${serviceNameBn}</h1>
                         <p class="text-gray-500">${serviceNumber}</p>
                     </div>
                     <div>${time}</div>
